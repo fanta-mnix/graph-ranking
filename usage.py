@@ -1,4 +1,4 @@
-from rank import *
+from rank import calculate_rank
 from pprint import pprint
 
 links = {
@@ -14,4 +14,4 @@ links = {
     'webpage-10': {'webpage-2', 'webpage-3', 'webpage-8', 'webpage-9'},
 }
 
-pprint(calculate_rank(links))
+pprint(calculate_rank(links)[:10])
