@@ -31,6 +31,7 @@ def discrete_uniform(n):
 def as_markov_matrix(adjacency):
     import numpy as np
     from scipy import sparse
+
     m, n = adjacency.shape
     assert m == n
     assert not sparse.issparse(adjacency)

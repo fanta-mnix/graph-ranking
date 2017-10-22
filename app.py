@@ -1,22 +1,17 @@
-import numpy as np
-
 from rank import *
 from pprint import pprint
 
-goals = {
-    'excellence': {'practice', 'study', 'team'},  # Excellence is built with: practice, study and team
-    'practice': {'pro-bono', 'practice-default'},  # 'practice-default' was introduced because 'practice' consists of more than Pro Bono
-    'team': {'excellence', 'reputation'},
-    'study': {'master', 'study-default'},
-    'pro-bono': set(),
-    'reputation': {'portfolio', 'pro-bono', 'excellence', 'blogging', 'networking', 'talks', 'master', 'team'},
-    'master': set(),
-    'portfolio': {'practice', 'study'},  # study? excellence?
-    'blogging': set(),
-    'networking': {'master', 'team', 'talks', 'blogging'},  # What is my reach | talks? blogging?
-    'talks': {'reputation', 'networking', 'excellence'},
-    'practice-default': set(),
-    'study-default': set()
+links = {
+    'webpage-1': {'webpage-2', 'webpage-4', 'webpage-5', 'webpage-6', 'webpage-8', 'webpage-9', 'webpage-10'},
+    'webpage-2': {'webpage-5', 'webpage-6'},
+    'webpage-3': {'webpage-10'},
+    'webpage-4': {'webpage-9'},
+    'webpage-5': {'webpage-2', 'webpage-4'},
+    'webpage-6': set(), # dangling page
+    'webpage-7': {'webpage-1', 'webpage-3', 'webpage-4'},
+    'webpage-8': {'webpage-1'},
+    'webpage-9': {'webpage-1', 'webpage-2', 'webpage-3', 'webpage-8', 'webpage-10'},
+    'webpage-10': {'webpage-2', 'webpage-3', 'webpage-8', 'webpage-9'},
 }
 
-pprint(calculate_rank(goals))
+pprint(calculate_rank(links))
